@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  username: postgres
+  password: hearthscr 
+  pool: 10
+
+development: 
+  <<: *default
+  database: grecqo_grepo_development
+
+test: &test
+  <<: *default
+  database: grecqo_grepo_testing

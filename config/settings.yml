@@ -1,0 +1,6 @@
+current_server: 'de68'
+
+servers:
+  de:
+    67: 'http://de67.grepolis.com/data/players.txt'
+    68: 'http://de68.grepolis.com/data/players.txt'
