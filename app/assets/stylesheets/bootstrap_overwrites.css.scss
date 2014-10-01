@@ -1,16 +1,43 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
-$body-bg:                      #ecf0f1;
+// Basic Defaults
+$body-bg:                      #e9eaed;
 $font-family-sans-serif:       'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:                45px;
 $navbar-default-bg:            white;
-$navbar-default-brand-color:   #c0392b;
-$brand-primary:                #c0392b;
+$navbar-default-brand-color:   #3b5998;
+$brand-primary:                #3b5998;
 $jumbotron-bg:                 white;
 
-$grid-gutter-width: 20px;
-$container-large-desktop:  ((940px + $grid-gutter-width));
+// Panels
+$panel-inner-border: #e5e5e5;
+$panel-default-border: #e5e6e9 #dfe0e4 #d0d1d5;
+$panel-default-heading-bg: #f6f7f8;
+$panel-footer-bg: #f6f7f8;
+$panel-default-text: #4e5665;
 
+// Navbar
+$navbar-default-border: #dfe0e4;
+
+// Default Container Width
+$grid-gutter-width: 20px;
+$container-large-desktop:  ((920px + $grid-gutter-width));
+
+// Import Bootstrap
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
+
+// Import Stylesheets
+@import 'apps/*';
+
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+.panel {
+	box-shadow: none;
+	.panel-title {
+		font-weight: bold;
+	}
+}
