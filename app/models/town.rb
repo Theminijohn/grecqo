@@ -4,5 +4,6 @@ class Town < ActiveRecord::Base
 
 	# Associations
 	belongs_to :player, foreign_key: :player_id, touch: true
+	has_many :conquers, foreign_key: :town_id
 
 end

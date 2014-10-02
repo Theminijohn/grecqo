@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 
 	def show
 		@player = Player.find(params[:id])
+		@player_towns = @player.towns.all.order("points desc").paginate(page: params[:page], per_page: 10)
 	end
 
 	private

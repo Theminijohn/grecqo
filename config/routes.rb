@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :alliances
+
+  resources :conquers
+
   resources :towns
 
   root 'pages#home'

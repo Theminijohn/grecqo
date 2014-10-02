@@ -1,14 +1,22 @@
+<!-- Breadcrumb -->
 <div class="player_crumb">
 	<div class="inner">
 		<div class="pull-left">
 			<ul>
-				<li>
-					<%= link_to '#' do %>
+				<li class="player_name">
+					<%= link_to @player do %>
 						<%= @player.name.capitalize %>
 					<% end %>
 				</li>
-				<li>
-					<a href="#">Hello There</a>
+				<li class="player_alliance">
+					<%= link_to '#' do %>
+						<% if @player.alliance.present? %>
+							<%= fa_icon 'shield' %>
+							<%= @player.alliance.name %>
+						<% else %>
+							In no Alliance
+						<% end %>
+					<% end %>
 				</li>
 			</ul>
 		</div>
@@ -33,6 +41,7 @@
 	</div>
 </div>
 
+<!-- Statistics -->
 <div class="row">
 	<div class="col-md-3">
 		<div class="stat_box">
@@ -76,7 +85,7 @@
 	<div class="col-md-3">
 		<div class="stat_box">
 			<div class="icon">
-				12
+				<%= number_with_delimiter(@player.conquers.count) %>
 			</div>
 			<span class="title">
 				Conquers
@@ -89,6 +98,89 @@
 </div>
 
 <div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-9"></div>
+
+	<!-- Bash -->
+	<div class="col-md-3">
+	</div>
+
+	<!-- Towns -->
+	<div class="col-md-9">
+		<div class="town_list">
+			<div class="title">
+				<span>
+					Towns
+				</span>
+			</div>
+			<div class="list">
+				<% @player_towns.each do |town| %>
+
+					<div class="individual_town">
+						<div class="clearfix">
+
+							<% if town.conquers.present? %>
+								<% if town.conquers.last.intern? %>
+									<div class="border_left_intern"></div>
+								<% else %>
+									<div class="border_left_eo"></div>
+								<% end %>
+							<% else %> 
+								<div class="border_left_normal"></div>
+							<% end %>
+
+							<div class="content">
+								<div class="pull-right">
+									<div class="meta">
+										<div>
+											<%= town.ocean %>
+											<%= fa_icon 'globe' %>
+											&nbsp;&nbsp;|&nbsp;&nbsp;
+											<%= town.coordinates %>
+											<%= fa_icon 'globe' %>
+											&nbsp;&nbsp;|&nbsp;&nbsp;
+											<%= number_with_delimiter(town.points) %>
+											<%= fa_icon 'bar-chart' %>
+										</div>
+										<% if town.conquers.present? %>
+											<div class="conquer_time">
+												Conquered: <%= town.conquers.find_by_new_player_id(@player.id).conquer_time if town.conquers.present? %>
+											</div>
+										<% end %>
+									</div>
+								</div>
+								<div class="pull-left">
+									<a href="#">
+										
+										<span class="town_name">
+											<%= town.name %>
+										</span>
+										<div class="meta">
+											<% if town.conquers.present? %>
+												Conquered from:
+												<b>
+													<%= town.conquers.last.old_player.name if town.conquers.last.old_player %>
+												</b>
+												- 
+												<b>
+													<%= town.conquers.last.old_alliance.name if town.conquers.last.old_alliance %>
+												</b>
+											<% else %>
+												Abandoned
+											<% end %>
+										</div>
+
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				<% end %>
+			</div>
+		</div>
+
+		<div class="text-center">
+			<%= will_paginate @player_towns, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
 </div>

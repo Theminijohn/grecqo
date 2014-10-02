@@ -4,5 +4,7 @@ class Player < ActiveRecord::Base
 
 	# Associations
 	has_many :towns
+	belongs_to :alliance, touch: true
+	has_many :conquers, class_name: 'Conquer', foreign_key: :new_player_id
 	
 end

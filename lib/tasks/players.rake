@@ -6,11 +6,11 @@ desc "Import Players"
 
 task import_players: [:environment] do
 
-	progress = ProgressBar.create( :format         => '%a %bᗧ%i %p%% %t',
-                               :progress_mark  => ' ',
-                               :remainder_mark => '･',
-                               :total          => nil,
-                               :title          => 'Importing players')
+  progress = ProgressBar.create( format:         '%a %bᗧ%i %p%% %t',
+                                 progress_mark:  ' ',
+                                 remainder_mark: '･',
+                                 total:          nil,
+                                 title:          'Importing Players')
 
   url = "http://#{Settings.current_server}.grepolis.com/data/players.txt"
   url_data = open(url).read()

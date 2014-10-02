@@ -11,10 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002163353) do
+ActiveRecord::Schema.define(version: 20141002165311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alliances", primary_key: "grepo_id", force: true do |t|
+    t.string   "name"
+    t.integer  "points"
+    t.integer  "town_count"
+    t.integer  "member_count"
+    t.integer  "rank"
+    t.integer  "all_rank"
+    t.integer  "all_points"
+    t.integer  "def_rank"
+    t.integer  "def_points"
+    t.integer  "att_rank"
+    t.integer  "att_points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "alliances", ["all_rank"], name: "index_alliances_on_all_rank", using: :btree
+  add_index "alliances", ["att_points"], name: "index_alliances_on_att_points", using: :btree
+  add_index "alliances", ["att_rank"], name: "index_alliances_on_att_rank", using: :btree
+  add_index "alliances", ["def_points"], name: "index_alliances_on_def_points", using: :btree
+  add_index "alliances", ["def_rank"], name: "index_alliances_on_def_rank", using: :btree
+  add_index "alliances", ["grepo_id"], name: "index_alliances_on_grepo_id", using: :btree
+  add_index "alliances", ["member_count"], name: "index_alliances_on_member_count", using: :btree
+  add_index "alliances", ["name"], name: "index_alliances_on_name", using: :btree
+  add_index "alliances", ["points"], name: "index_alliances_on_points", using: :btree
+  add_index "alliances", ["rank"], name: "index_alliances_on_rank", using: :btree
+  add_index "alliances", ["town_count"], name: "index_alliances_on_town_count", using: :btree
+
+  create_table "conquers", force: true do |t|
+    t.integer  "town_id"
+    t.integer  "time"
+    t.integer  "new_player_id"
+    t.integer  "old_player_id"
+    t.integer  "new_ally_id"
+    t.integer  "old_ally_id"
+    t.integer  "town_points"
+    t.boolean  "intern",            default: false
+    t.string   "old_player_name"
+    t.string   "old_alliance_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conquers", ["intern"], name: "index_conquers_on_intern", using: :btree
+  add_index "conquers", ["new_ally_id"], name: "index_conquers_on_new_ally_id", using: :btree
+  add_index "conquers", ["new_player_id"], name: "index_conquers_on_new_player_id", using: :btree
+  add_index "conquers", ["old_ally_id"], name: "index_conquers_on_old_ally_id", using: :btree
+  add_index "conquers", ["old_player_id"], name: "index_conquers_on_old_player_id", using: :btree
+  add_index "conquers", ["town_id"], name: "index_conquers_on_town_id", using: :btree
+  add_index "conquers", ["town_points"], name: "index_conquers_on_town_points", using: :btree
 
   create_table "players", primary_key: "grepo_id", force: true do |t|
     t.string   "name"

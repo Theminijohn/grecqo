@@ -18,6 +18,9 @@ gem 'ruby-progressbar'
 gem 'rails_config'
 gem 'devise'
 
+# Pagination
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'quiet_assets'
