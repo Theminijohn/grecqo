@@ -1,0 +1,79 @@
+// Breadcrumb
+.player_crumb {
+	margin-bottom: 12px;
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	.inner {
+		font-size: 14px;
+		line-height: 44px;
+		vertical-align: middle;
+		zoom: 1;
+		.pull-left, .pull-right {
+			font-size: 14px;
+			line-height: 44px;
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				white-space: nowrap;
+				li {
+					border-left: #e9eaed solid 1px;
+					display: inline-block;
+					list-style-type: none;
+					max-width: 100%;
+					position: relative;
+					vertical-align: middle;
+					display: inline-block;
+					vertical-align: baseline;
+					white-space: nowrap;
+					text-align: -webkit-match-parent;
+					line-height: 28px;
+					a {
+						padding: 0 16px;
+						text-overflow: ellipsis;
+						color: #141823;
+						text-decoration: none;
+					}
+					&:hover {
+						background-color: #f6f7f8;
+						border-color: #f6f7f8;
+					}
+					&:first-child {
+						font-weight: bold;
+						border-left: none;
+					}
+				}
+			}
+		}
+		.pull-right a {
+			color: #9197a3!important;
+		}
+	}
+}
+
+// Statistics Boxes
+.stat_box {
+	font-size: 14px;
+	line-height: 16px;
+	padding-bottom: 20px;
+	padding-top: 25px;
+	margin-bottom: 15px;
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	text-align: center;
+	.icon {
+		height: 20px;
+		margin-bottom: 16px;
+		font-size: 25px;
+	}
+	.title {
+		font-weight: bold;
+	}
+	.meta {
+		color: #9197a3;
+	}
+}

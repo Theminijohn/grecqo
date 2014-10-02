@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :towns
+
   root 'pages#home'
 
   # Devise

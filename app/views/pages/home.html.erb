@@ -23,7 +23,7 @@
 						Beste Spieler der Welt Byllis
 					</li>
 					<li class="list_item">
-						<a href="#" class="content">
+						<%= link_to Player.find_by_rank(1), class: 'content' do %>
 			        <h4 class="header"><%= Player.find_by_rank(1).name %></h4>
 			        <p class="meta">
 			        	Donec id elit non mi porta.
@@ -31,7 +31,7 @@
 			        <span class="icon">
 			        	<i class="fa fa-chevron-right"></i>
 			        </span>
-			      </a>
+			      <% end %>
 					</li>
 					<li class="list_item">
 						<a href="#" class="content">

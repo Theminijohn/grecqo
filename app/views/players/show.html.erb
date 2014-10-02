@@ -1,3 +1,93 @@
+<div class="player_crumb">
+	<div class="inner">
+		<div class="pull-left">
+			<ul>
+				<li>
+					<%= link_to '#' do %>
+						<%= @player.name.capitalize %>
+					<% end %>
+				</li>
+				<li>
+					<a href="#">Hello There</a>
+				</li>
+			</ul>
+		</div>
+		<div class="pull-right">
+			<ul>
+				<li>
+					<%= link_to '#' do %>
+						Updated <%= time_ago_in_words(@player.updated_at) %> ago
+					<% end %>
+				</li>
+				<% if user_signed_in? %>
+					<li>
+						<%= link_to '#' do %>
+							<%= fa_icon 'circle-o' %>
+							Follow
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				<%= @player.rank %>
+			</div>
+			<span class="title">
+				Rank
+			</span>
+			<div class="meta">
+				something else
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				<%= number_with_delimiter(@player.points) %>
+			</div>
+			<span class="title">
+				Points
+			</span>
+			<div class="meta">
+				something else
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				<%= number_with_delimiter(@player.town_count) %>
+			</div>
+			<span class="title">
+				Towns
+			</span>
+			<div class="meta">
+				something else
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				12
+			</div>
+			<span class="title">
+				Conquers
+			</span>
+			<div class="meta">
+				something else
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-md-3"></div>
 	<div class="col-md-9"></div>

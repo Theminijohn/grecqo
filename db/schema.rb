@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001184903) do
+ActiveRecord::Schema.define(version: 20141002163353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(version: 20141001184903) do
   add_index "players", ["points"], name: "index_players_on_points", using: :btree
   add_index "players", ["rank"], name: "index_players_on_rank", using: :btree
   add_index "players", ["town_count"], name: "index_players_on_town_count", using: :btree
+
+  create_table "towns", primary_key: "grepo_id", force: true do |t|
+    t.integer  "player_id"
+    t.string   "name"
+    t.integer  "island_x"
+    t.integer  "island_y"
+    t.integer  "slot"
+    t.integer  "points"
+    t.string   "ocean"
+    t.string   "coordinates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "towns", ["coordinates"], name: "index_towns_on_coordinates", using: :btree
+  add_index "towns", ["grepo_id"], name: "index_towns_on_grepo_id", using: :btree
+  add_index "towns", ["island_x"], name: "index_towns_on_island_x", using: :btree
+  add_index "towns", ["island_y"], name: "index_towns_on_island_y", using: :btree
+  add_index "towns", ["ocean"], name: "index_towns_on_ocean", using: :btree
+  add_index "towns", ["player_id"], name: "index_towns_on_player_id", using: :btree
+  add_index "towns", ["points"], name: "index_towns_on_points", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
