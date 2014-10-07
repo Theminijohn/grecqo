@@ -14,7 +14,7 @@
 							<%= fa_icon 'shield' %>
 							<%= @player.alliance.name %>
 						<% else %>
-							In no Alliance
+							In keiner Allianz
 						<% end %>
 					<% end %>
 				</li>
@@ -29,9 +29,16 @@
 				</li>
 				<% if user_signed_in? %>
 					<li>
-						<%= link_to '#' do %>
-							<%= fa_icon 'circle-o' %>
-							Follow
+						<% if current_user.following? @player %>
+							<%= link_to unfollow_player_path(@player) do %>
+								<%= fa_icon 'check-circle-o' %>
+								Entfolgen
+							<% end %>
+						<% else %>
+							<%= link_to follow_player_path(@player) do %>
+								<%= fa_icon 'circle-o' %>
+								Folgen
+							<% end %>
 						<% end %>
 					</li>
 				<% end %>
@@ -62,7 +69,7 @@
 				<%= number_with_delimiter(@player.points) %>
 			</div>
 			<span class="title">
-				Points
+				Punkte
 			</span>
 			<div class="meta">
 				something else
@@ -75,7 +82,7 @@
 				<%= number_with_delimiter(@player.town_count) %>
 			</div>
 			<span class="title">
-				Towns
+				Städte
 			</span>
 			<div class="meta">
 				something else
@@ -88,7 +95,7 @@
 				<%= number_with_delimiter(@player.conquers.count) %>
 			</div>
 			<span class="title">
-				Conquers
+				Eroberungen
 			</span>
 			<div class="meta">
 				something else
@@ -108,7 +115,7 @@
 		<div class="town_list">
 			<div class="title">
 				<span>
-					Towns
+					Städte
 				</span>
 			</div>
 			<div class="list">
@@ -132,7 +139,7 @@
 									<div class="meta">
 										<div>
 											<%= town.ocean %>
-											<%= fa_icon 'globe' %>
+											<%= fa_icon 'flag' %>
 											&nbsp;&nbsp;|&nbsp;&nbsp;
 											<%= town.coordinates %>
 											<%= fa_icon 'globe' %>
@@ -142,7 +149,7 @@
 										</div>
 										<% if town.conquers.present? %>
 											<div class="conquer_time">
-												Conquered: <%= town.conquers.find_by_new_player_id(@player.id).conquer_time if town.conquers.present? %>
+												Erobert: <%= town.conquers.find_by_new_player_id(@player.id).conquer_time if town.conquers.present? %>
 											</div>
 										<% end %>
 									</div>
@@ -155,7 +162,7 @@
 										</span>
 										<div class="meta">
 											<% if town.conquers.present? %>
-												Conquered from:
+												Erobert von:
 												<b>
 													<%= town.conquers.last.old_player.name if town.conquers.last.old_player %>
 												</b>
@@ -164,7 +171,12 @@
 													<%= town.conquers.last.old_alliance.name if town.conquers.last.old_alliance %>
 												</b>
 											<% else %>
-												Abandoned
+												Verlassen
+											<% end %>
+										</div>
+										<div class="meta">
+											<% if town.conquers.last %>
+											<% else %>
 											<% end %>
 										</div>
 

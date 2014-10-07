@@ -1,0 +1,78 @@
+<!-- Breadcrumb -->
+<div class="player_crumb">
+	<div class="inner">
+		<div class="pull-left">
+			<ul>
+				<li class="player_name">
+					<%= link_to activities_path do %>
+						<%= fa_icon 'cloud' %>
+						Benachrichtigungen
+					<% end %>
+				</li>
+				<li class="player_alliance">
+					<%= link_to activities_path do %>
+						<%= @activities.count %>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+		<% if @activities.any? %>
+			<div class="pull-right">
+				<ul>
+					<li>
+						<%= link_to clear_activities_path do %>
+							<%= fa_icon 'trash' %>
+							Delete all
+						<% end %>
+					</li>
+				</ul>
+			</div>
+		<% end %>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+<div class="row">
+
+	<!-- Statistics -->
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				<%= current_user.follow_count %>
+			</div>
+			<span class="title">
+				Spielern
+			</span>
+			<div class="meta">
+				folgst du gerade
+			</div>
+		</div>
+	</div>
+
+	<!-- Activities -->
+	<div class="col-md-9">
+		
+		<% if @activities.any? %>
+			<div class="activities_list">
+				<ul>
+					<% @activities.each do |a| %>
+						<li>
+							<%= render_activity a %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		<% else %>
+			<div class="text-center">
+				<h5>No Activities, Good Job!</h5>
+			</div>
+		<% end %>
+
+		<div class="text-center">
+			<%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
+		</div>
+
+	</div>
+</div>
+

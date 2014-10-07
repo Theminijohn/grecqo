@@ -1,0 +1,10 @@
+<div class="border border_conquer"></div>
+<div class="content">
+	<span class="pull-left">
+		<%= link_to a.owner.name, a.owner %> hat die Stadt <%= link_to a.trackable.town.name , '#' %> erobert
+	</span>
+
+	<span class="pull-right conquer_time">
+		<%= time_ago_in_words(Time.at(activity.trackable.time)) %> ago &nbsp; <%= fa_icon 'clock-o' %>
+	</span>
+</div>

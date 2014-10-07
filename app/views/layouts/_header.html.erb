@@ -16,12 +16,22 @@
       <ul class="nav navbar-nav">
         <li>
           <%= link_to players_path do %>
-            <i class="fa fa-male"></i> Players
+            <%= fa_icon 'users' %> Spieler
           <% end %>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li>
+            <%= link_to activities_path do %>
+              <%= fa_icon 'cloud' %>
+              <% if PublicActivity::Activity.where(recipient: current_user).any? %>
+                <span class="notifications_label">
+                  <%= PublicActivity::Activity.where(recipient: current_user).count %>
+                </span>
+              <% end %>
+            <% end %>
+          </li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>

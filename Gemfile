@@ -17,10 +17,20 @@ gem 'font-awesome-rails'
 gem 'ruby-progressbar'
 gem 'rails_config'
 gem 'devise'
+gem 'delayed_job_active_record'
 
 # Pagination
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
+# Follow
+gem 'acts_as_follower'
+
+# Notifications
+gem 'public_activity'
+
+# Tracking
+gem 'mixpanel-ruby'
 
 group :development, :test do
   gem 'quiet_assets'

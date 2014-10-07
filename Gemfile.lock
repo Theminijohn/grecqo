@@ -44,6 +44,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_follower (0.2.1)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.0.20140911)
       execjs
@@ -75,6 +76,11 @@ GEM
     daemon_controller (1.2.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    delayed_job (4.0.4)
+      activesupport (>= 3.0, < 4.2)
+    delayed_job_active_record (4.0.2)
+      activerecord (>= 3.0, < 4.2)
+      delayed_job (>= 3.0, < 4.1)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -107,6 +113,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.2)
+    mixpanel-ruby (1.5.0)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
     passenger (4.0.53)
@@ -138,6 +145,11 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    public_activity (1.4.2)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -209,18 +221,22 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_follower
   autoprefixer-rails
   better_errors
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  delayed_job_active_record
   devise
   font-awesome-rails
   jazz_hands!
   jbuilder (~> 2.0)
   jquery-rails
+  mixpanel-ruby
   passenger (>= 4.0.42)
   pg
   pry-byebug
+  public_activity
   quiet_assets
   rails (= 4.1.4)
   rails_12factor

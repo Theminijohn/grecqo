@@ -31,6 +31,7 @@ $container-large-desktop:  ((920px + $grid-gutter-width));
 // Import Stylesheets
 @import 'apps/*';
 @import 'players/*';
+@import 'activities/*';
 
 body {
 	-webkit-font-smoothing: antialiased;

@@ -6,6 +6,8 @@ class Conquer < ActiveRecord::Base
   belongs_to :old_player, class_name: 'Player', foreign_key: :old_player_id, touch: true
   belongs_to :old_alliance, class_name: 'Alliance', foreign_key: :old_ally_id
 
+  # Public Activity
+  include PublicActivity::Common
 
   def conquer_time
     Time.at(self.time).strftime('%d/%m/%Y, %H:%M')

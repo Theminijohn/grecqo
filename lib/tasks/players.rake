@@ -18,8 +18,8 @@ task import_players: [:environment] do
   progress.total = open(url).readlines.size
 
   SmarterCSV.process('/tmp/players.txt', {
-    :user_provided_headers => [
-      "grepo_id", "name", "alliance_id", "points", "rank", "town_count"
+    user_provided_headers: [
+      'grepo_id', 'name', 'alliance_id', 'points', 'rank', 'town_count'
     ], headers_in_file: false
   }) do |array|
 
@@ -31,11 +31,11 @@ task import_players: [:environment] do
       player.attributes = a
       
       # Track Alliance Changes
-      # if player.alliance_id_changed? && player.followers.count > 0
-      #   player.followers.each do |follower|
-      #     player.create_activity :changed_alliance, owner: player, recipient: follower
-      #   end
-      # end
+      if player.alliance_id_changed? && player.followers.count > 0
+        player.followers.each do |follower|
+          player.delay.create_activity :changed_alliance, owner: player, recipient: follower
+        end
+      end
 
       player.save if player.changed?
       progress.increment

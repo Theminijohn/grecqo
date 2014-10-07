@@ -11,6 +11,7 @@ class CreateConquers < ActiveRecord::Migration
       t.boolean :intern, default: false
       t.string :old_player_name
       t.string :old_alliance_name
+      t.boolean :abandoned, default: false
 
       t.timestamps
     end
@@ -21,5 +22,6 @@ class CreateConquers < ActiveRecord::Migration
     add_index :conquers, :old_ally_id
     add_index :conquers, :town_points
     add_index :conquers, :intern
+    add_index :conquers, :abandoned
   end
 end
