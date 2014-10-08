@@ -106,8 +106,55 @@
 
 <div class="row">
 
-	<!-- Bash -->
+	
 	<div class="col-md-3">
+
+		<!-- Bash -->
+		<div class="bash_points_list">
+			<div class="header">
+				Bash Punkte
+			</div>
+			<div class="bash_all">
+				<span class="pull-left">
+					<span class="show">
+						<%= fa_icon 'info-circle' %>
+						<%= @player.all_points %>
+					</span>
+					<span class="metalicious">All</span>
+				</span>
+				<span class="pull-right">
+					Rank: <%= @player.all_rank %>
+				</span>
+				<div class="clearfix"></div>
+			</div>
+			<div class="bash_att">
+				<span class="pull-left">
+					<span class="show">
+						<%= fa_icon 'info-circle' %>
+						<%= @player.att_points %>
+					</span>
+					<span class="metalicious">Offensiv</span>
+				</span>
+				<span class="pull-right">
+					Rank: <%= @player.att_rank %>
+				</span>
+				<div class="clearfix"></div>
+			</div>
+			<div class="bash_def">
+				<span class="pull-left">
+					<span class="show">
+						<%= fa_icon 'info-circle' %>
+						<%= @player.def_points %>
+					</span>
+					<span class="metalicious">Defensiv</span>
+				</span>
+				<span class="pull-right">
+					Rank: <%= @player.def_rank %>
+				</span>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
 	</div>
 
 	<!-- Towns -->

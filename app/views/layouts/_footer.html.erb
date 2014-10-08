@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="grecqo_footer">
+		<ul class="footer_links pull-right">
+			<li><%= link_to 'Status', '#' %></li>
+			<li><%= link_to 'Blog', '#' %></li>
+			<li><%= link_to 'About', '#' %></li>
+		</ul>
+		<%= link_to root_path do %>
+			<span class="grecqo_icon">
+				<%= fa_icon 'paper-plane' %>
+			</span>
+		<% end %>
+		<ul class="footer_links">
+			<li>© <%= Time.now.year %> Grecqo</li>
+			<li><%= link_to 'Spieler', players_path %></li>
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+</div>
