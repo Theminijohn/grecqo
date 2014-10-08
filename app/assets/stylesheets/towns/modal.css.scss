@@ -1,0 +1,162 @@
+// Breadcrumb
+.player_town .crumb {
+	margin-bottom: 12px;
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	.inner {
+		font-size: 14px;
+		line-height: 44px;
+		vertical-align: middle;
+		zoom: 1;
+		.pull-left, .pull-right {
+			font-size: 14px;
+			line-height: 44px;
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				white-space: nowrap;
+				li {
+					border-left: #e9eaed solid 1px;
+					display: inline-block;
+					list-style-type: none;
+					max-width: 100%;
+					position: relative;
+					vertical-align: middle;
+					display: inline-block;
+					vertical-align: baseline;
+					white-space: nowrap;
+					text-align: -webkit-match-parent;
+					line-height: 28px;
+					a {
+						padding: 0 16px;
+						text-overflow: ellipsis;
+						color: #141823;
+						text-decoration: none;
+					}
+					&:hover {
+						background-color: #f6f7f8;
+						border-color: #f6f7f8;
+					}
+					&:first-child {
+						border-left: none;
+					}
+				}
+			}
+		}
+		.pull-left {
+			.town_name {
+				font-weight: bold;
+				padding: 0 16px;
+				cursor: default;
+			}
+			.town_points {
+				padding: 0 16px;
+				cursor: default;
+				color: #9197a3;
+			}
+		}
+		.pull-right {
+			.town_coordinates, .town_conquers {
+				padding: 0 16px;
+				cursor: default;
+				color: #9197a3;
+			}
+			a {
+				color: #9197a3!important;
+			}
+		}
+	}
+}
+
+// Island Overview
+.player_town .island_overview {
+	margin-bottom: 12px;
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	zoom: 1;
+	.title {
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		background: #f6f7f8;
+		height: 47px;
+		padding: 0 12px;
+		span {
+			line-height: 47px;
+			color: #4e5665;
+			font-weight: bold;
+		}
+	}
+	.list {
+		zoom: 1;
+		.individual {
+			padding: 0;
+			border-top: 1px solid #e5e5e5;
+			-webkit-transition: background-color 70ms linear;
+	    -moz-transition: background-color 70ms linear;
+	    -o-transition: background-color 70ms linear;
+	    -ms-transition: background-color 70ms linear;
+	    transition: background-color 70ms linear;
+	    &:hover {
+				background-color: rgba(233, 234, 237, 0.6);
+			}
+			.content {
+				font-size: 14px;
+				line-height: 20px;
+				padding: 6px 15px;
+				overflow: hidden;
+				.property {
+					color: #9197a3;
+					a {
+						color: #3b5998;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Conquers Overview
+.player_town .conquers_overview {
+	margin-bottom: 12px;
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	zoom: 1;
+	.title {
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		background: #f6f7f8;
+		height: 47px;
+		padding: 0 12px;
+		span {
+			line-height: 47px;
+			color: #4e5665;
+			font-weight: bold;
+		}
+	}
+}
+
+// Footer
+.player_town .footer {
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	.inner {
+		font-size: 14px;
+		line-height: 44px;
+		vertical-align: middle;
+		zoom: 1;
+		padding: 0 15px;
+		button {
+			outline: 0;
+		}
+	}
+}

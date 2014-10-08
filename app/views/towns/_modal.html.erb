@@ -1,0 +1,88 @@
+<div class="player_town">
+	<div class="crumb">
+	  <div class="inner">
+	    <div class="pull-left">
+	      <ul>
+	        <li class="town_name" title="Stadt Name">
+	          <%= @town.name %>
+	        </li>
+
+	        <li class="town_points" title="Stadt Punkte">
+	        	<%= fa_icon 'bar-chart' %>
+	          <%= @town.points %>
+	        </li>
+	      </ul>
+	    </div>
+
+	    <div class="pull-right">
+	      <ul>
+	        <li class="town_conquers">
+	          Kolonisationen: <%= @town.conquers.count %>
+	        </li>
+
+	        <li class="town_coordinates" title="Stadt Koordinaten">
+	        	<%= fa_icon 'globe' %>
+	          <%= @town.coordinates %>
+	        </li>
+	      </ul>
+	    </div>
+
+	    <div class="clearfix"></div>
+	  </div>
+	</div>
+
+	<!-- Island Overview -->
+	<div class="island_overview">
+		<div class="title">
+			<span>Inselübersicht</span>
+		</div>
+		<div class="list">
+			<% Town.where(island_x: @town.island_x, island_y: @town.island_y).each do |t| %>
+				<div class="individual">
+					<div class="content">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 property">
+								<%= link_to t.player.name, t.player %>
+							</div>
+							<div class="col-md-3 col-sm-3 property">
+								<%= t.name %>
+							</div>
+							<div class="col-md-3 col-sm-3 property">
+								<%= fa_icon 'bar-chart' %>
+								<%= t.points %>
+							</div>
+							<div class="col-md-3 col-sm-3 property">
+								<% if t.player.alliance.present? %>
+									<%= t.player.alliance.name %>
+								<% else %>
+									In keiner Allianz
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Conquers Overview -->
+	<% if @town.conquers.count > 1 %>
+		<div class="conquers_overview">
+			<div class="title">
+				<span>Kolonisationen</span>
+			</div>
+			<div class="list">
+				
+			</div>
+		</div>
+	<% end %>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="inner clearfix">
+			<div class="pull-right">
+				<button type="button" class="grecqo-btn btn-sm" data-dismiss="modal">Schließen</button>
+			</div>
+		</div>
+	</div>
+</div>
