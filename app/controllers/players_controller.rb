@@ -2,12 +2,13 @@ class PlayersController < ApplicationController
 	before_action :set_player, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@players = Player.all
+		@search = Player.search(params[:q])
+		@players = @search.result.order("points desc").paginate(page: params[:page], per_page: 25)
 	end
 
 	def show
 		@player = Player.find(params[:id])
-		@player_towns = @player.towns.all.order("points desc").paginate(page: params[:page], per_page: 10)
+		@player_towns = @player.towns.all.order("points desc").paginate(page: params[:page], per_page: 15)
 	end
 
 	# Follow / Unfollow --------------------------------------------------------------------------------
@@ -19,7 +20,7 @@ class PlayersController < ApplicationController
 		mixpanel.track(current_user.id, 'Followed a Player')
 		mixpanel.people.plus_one(current_user.id, 'Following')
 
-		redirect_to :back, notice: 'You are now following this Player'
+		redirect_to :back, notice: 'Du folgst diesem spieler jetzt.'
 	end
 
 	def unfollow
@@ -32,7 +33,7 @@ class PlayersController < ApplicationController
 		mixpanel.track(current_user.id, 'Unfollowed a Player')
 		mixpanel.people.increment(current_user.id, { 'Following' => -1 })
 
-		redirect_to :back, notice: 'You unfollowed this Player'
+		redirect_to :back, notice: 'Du folgst diesem spieler jetzt nicht mehr'
 	end
 
 	# --------------------------------------------------------------------------------------------------

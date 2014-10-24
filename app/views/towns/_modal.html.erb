@@ -42,7 +42,11 @@
 					<div class="content">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 property">
-								<%= link_to t.player.name, t.player %>
+								<% if t.player.present? %>
+									<%= link_to t.player.name, t.player %>
+								<% else %>
+									Verlassen
+								<% end %>
 							</div>
 							<div class="col-md-3 col-sm-3 property">
 								<%= t.name %>
@@ -52,10 +56,13 @@
 								<%= t.points %>
 							</div>
 							<div class="col-md-3 col-sm-3 property">
-								<% if t.player.alliance.present? %>
-									<%= t.player.alliance.name %>
+								<% if t.player.present? %>
+									<% if t.player.alliance.present? %>
+										<%= t.player.alliance.name %>
+									<% else %>
+										In keiner Allianz
+									<% end %>
 								<% else %>
-									In keiner Allianz
 								<% end %>
 							</div>
 						</div>
