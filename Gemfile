@@ -20,6 +20,7 @@ gem 'devise'
 gem 'delayed_job_active_record'
 gem 'rails-timeago', '~> 2.0'
 gem 'ransack'
+gem 'slack-notifier'
 
 # Pagination
 gem 'will_paginate'

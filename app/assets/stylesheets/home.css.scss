@@ -1,6 +1,26 @@
 .grecqo_home {
 	text-rendering: optimizelegibility;
 	-webkit-font-smoothing: antialiased;
+	.stat_box_links {
+		text-decoration: none;
+		color: inherit;
+		.hover_arrow {
+			display: none;
+		}
+		&:hover {
+			.stat_box {
+				opacity: .6;
+			}
+			.stat_box {
+				.icon, .title {
+					display: none;
+				}
+			}
+			.hover_arrow {
+				display: block;
+			}
+		}
+	}
 	.banner {
 		margin-bottom: 20px;
 		background: #fff;
@@ -9,7 +29,7 @@
 		border-radius: 3px;
 		.inner {
 			min-height: 325px;
-			background: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yM/r/wWr_epWbfdj.png) no-repeat top left;
+			background: url(http://i.imgur.com/Ybqrn2y.png) no-repeat top left;
 			border-radius: 3px;
 			.text {
 				padding: 70px;
@@ -35,7 +55,7 @@
 		border-radius: 3px;
 		.first_section {
 			min-height: 240px;
-			background: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yC/r/wct0h9jZJEj.png) no-repeat center left;
+			background: url(http://i.imgur.com/3EcnMFi.png) no-repeat center left;
 			.text {
 				padding: 64px 64px 0px 400px;
 				h2 {
@@ -55,7 +75,7 @@
 		}
 		.second_section {
 			min-height: 230px;
-			background: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yS/r/Ctv2jmsw3XY.png) no-repeat 400px center;
+			background: url(http://i.imgur.com/vFJ57rO.png) no-repeat 400px center;
 			.text {
 				padding: 32px 360px 32px 64px;
 				h2 {
@@ -75,7 +95,7 @@
 		}
 		.third_section {
 			min-height: 329px;
-			background: url(http://i.imgur.com/WmPntMF.png) no-repeat 92px bottom;
+			background: url(http://i.imgur.com/TJWGYeG.png) no-repeat 92px bottom;
 			.text {
 				padding: 32px 64px 32px 400px;
 				h2 {

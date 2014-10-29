@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 	def create
 		super # This calls Devise::RegistrationsController#create
 		if resource.save
-			# Mixpanel Create User Profile
+			# Create Mixpanel User Profile
 			mixpanel.track(@user.id, 'Created Account', {
 				'$email' => @user.email
 			})
@@ -12,6 +12,10 @@ class RegistrationsController < Devise::RegistrationsController
 				'$email' => @user.email,
 				'Following' => 0
 			})
+			# Slack Notification
+			notifier = Slack::Notifier.new "https://hooks.slack.com/services/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",
+				channel: '#notifier', username: 'GrecqoBot'
+			notifier.ping "Yay, we have a new User Registration. Users: #{User.all.count}"
 		end
 	end
 
