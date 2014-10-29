@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 			get :follow
 			get :unfollow
 		end
+		resources :towns
 	end
 
 	# Alliances
