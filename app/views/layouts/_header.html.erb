@@ -24,7 +24,7 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to activities_path do %>
-              <%= fa_icon 'cloud' %>
+              <%= fa_icon 'bell-o' %>
               <% if PublicActivity::Activity.where(recipient: current_user).any? %>
                 <span class="notifications_label">
                   <%= PublicActivity::Activity.where(recipient: current_user).count %>

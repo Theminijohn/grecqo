@@ -1,14 +1,78 @@
-<%= search_form_for @search do |f| %>
-	<div class="form-group">
-		<%= f.label :name_cont %>
-		<%= f.text_field :name_cont, class: 'form-control' %>
-	</div>
-	<div class="actions">
-		<%= f.submit 'Search' %>
-	</div>
-<% end %>
+<div class="row">
 
-<% @players.each do |p| %>
-	<%= p.name %>
-	<br>
-<% end %>
+	<!-- Left Side -->
+	<div class="col-md-3">
+		<div class="stat_box">
+			<div class="icon">
+				<%= Player.all.count %>
+			</div>
+			<span class="title">
+				Spieler
+			</span>
+		</div>
+	</div>
+
+	<!-- Right Side -->
+	<div class="col-md-9">
+
+    <!-- Player Banner -->
+    <div class="player_index_banner">
+    	<div class="inner">
+    		<div class="info">
+    			<div class="text">
+    				<h1><%= Player.all.count %> Spieler</h1>
+    				<p>Welt: Kythira</p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <!-- Search Bar -->
+    <%= search_form_for @search do |f| %>
+			<div class="input-group">
+	      <%= f.text_field :name_cont, class: 'form-control', placeholder: 'Name' %>
+	      <div class="input-group-btn">
+	        <%= button_tag(type: "submit", class: "btn btn-default", tabindex: '-1') do %>
+            <i class="fa fa-binoculars"></i> Suchen
+          <% end %>
+	      </div>
+	    </div>
+    <% end %>
+
+    <br>
+
+    <!-- Player List -->
+		<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Allianz</th>
+          <th>Punkte</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @players.each do |p| %>
+	        <tr>
+	        	<td><%= p.rank %></td>
+	          <td><%= link_to p.name.capitalize, p %></td>
+	          <td>
+	          	<% if p.alliance.present? %>
+	          		<%= p.alliance.name %>
+	          	<% else %>
+	          		<span class="text-muted">---</span>
+	          	<% end %>
+	          </td>
+	          <td><%= p.points %></td>
+	        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+		<!-- Pagination -->
+		<div class="text-center">
+			<%= will_paginate @players, renderer: BootstrapPagination::Rails %>
+		</div>
+
+	</div> <!-- end col9 -->
+</div>
