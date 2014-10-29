@@ -1,18 +1,17 @@
 <div class="row">
-
 	<!-- Left Side -->
 	<div class="col-md-3">
+		
 	</div>
 
 	<!-- Right Side -->
 	<div class="col-md-9">
 
-    <!-- Player Banner -->
-    <div class="player_index_banner">
+    <div class="alliance_index_banner">
     	<div class="inner">
     		<div class="info">
     			<div class="text">
-    				<h1><%= Player.all.count %> Spieler</h1>
+    				<h1><%= Alliance.all.count %> Allianzen</h1>
     				<p>Welt: Kythira</p>
     			</div>
     		</div>
@@ -33,38 +32,30 @@
 
     <br>
 
-    <!-- Player List -->
 		<table class="table table-striped">
       <thead>
         <tr>
           <th>Rank</th>
           <th>Name</th>
-          <th>Allianz</th>
+          <th>Mitglieder</th>
           <th>Punkte</th>
         </tr>
       </thead>
       <tbody>
-      	<% @players.each do |p| %>
+      	<% @alliances.each do |a| %>
 	        <tr>
-	        	<td><%= p.rank %></td>
-	          <td><%= link_to p.name.capitalize, p %></td>
-	          <td>
-	          	<% if p.alliance.present? %>
-	          		<%= p.alliance.name %>
-	          	<% else %>
-	          		<span class="text-muted">--- </span>
-	          	<% end %>
-	          </td>
-	          <td><%= p.points %></td>
+	        	<td><%= a.rank %></td>
+	          <td><%= link_to a.name.capitalize, a %></td>
+	          <td><%= a.member_count %></td>
+	          <td><%= number_with_delimiter(a.points) %></td>
 	        </tr>
         <% end %>
       </tbody>
     </table>
 
-		<!-- Pagination -->
+    <!-- Pagination -->
 		<div class="text-center">
-			<%= will_paginate @players, renderer: BootstrapPagination::Rails %>
+			<%= will_paginate @alliances, renderer: BootstrapPagination::Rails %>
 		</div>
-
-	</div> <!-- end col9 -->
+	</div>
 </div>

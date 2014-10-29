@@ -24,7 +24,7 @@
 			<ul>
 				<li>
 					<%= link_to '#' do %>
-						Updated <%= time_ago_in_words(@player.updated_at) %> ago
+						Aktualisiert <%= timeago_tag @player.updated_at, lang: :de %>
 					<% end %>
 				</li>
 				<% if user_signed_in? %>

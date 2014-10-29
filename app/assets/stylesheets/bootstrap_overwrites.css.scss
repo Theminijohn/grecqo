@@ -35,6 +35,7 @@ $container-large-desktop:  ((920px + $grid-gutter-width));
 // Import Stylesheets
 @import 'apps/*';
 @import 'players/*';
+@import 'alliances/*';
 @import 'activities/*';
 @import 'towns/*';
 

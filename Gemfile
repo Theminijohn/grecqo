@@ -18,6 +18,7 @@ gem 'ruby-progressbar'
 gem 'rails_config'
 gem 'devise'
 gem 'delayed_job_active_record'
+gem 'rails-timeago', '~> 2.0'
 gem 'ransack'
 
 # Pagination

@@ -19,6 +19,11 @@
             <%= fa_icon 'users' %> Spieler
           <% end %>
         </li>
+        <li>
+          <%= link_to alliances_path do %>
+            <%= fa_icon 'shield' %> Allianzen
+          <% end %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
