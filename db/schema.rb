@@ -72,11 +72,12 @@ ActiveRecord::Schema.define(version: 20141007051528) do
     t.boolean  "intern",            default: false
     t.string   "old_player_name"
     t.string   "old_alliance_name"
+    t.boolean  "abandoned",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "abandoned"
   end
 
+  add_index "conquers", ["abandoned"], name: "index_conquers_on_abandoned", using: :btree
   add_index "conquers", ["intern"], name: "index_conquers_on_intern", using: :btree
   add_index "conquers", ["new_ally_id"], name: "index_conquers_on_new_ally_id", using: :btree
   add_index "conquers", ["new_player_id"], name: "index_conquers_on_new_player_id", using: :btree
