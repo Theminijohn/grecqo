@@ -106,7 +106,6 @@
 
 <div class="row">
 
-	
 	<div class="col-md-3">
 
 		<!-- Bash -->
@@ -154,78 +153,106 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-
 	</div>
 
 	<!-- Towns -->
 	<div class="col-md-9">
-		<div class="town_list">
-			<div class="title">
-				<span>
-					Städte
-				</span>
-			</div>
-			<div class="list">
-				<% @player_towns.each do |town| %>
 
-					<%= link_to player_town_path(@player, town), data: {toggle: 'modal', target: '#pTown'} do %>
-						<div class="individual_town">
-							<div class="clearfix">
 
-								<% if town.conquers.present? %>
-									<% if town.conquers.last.intern? %>
-										<div class="border_left_intern"></div>
-									<% else %>
-										<div class="border_left_eo"></div>
-									<% end %>
-								<% else %> 
-									<div class="border_left_normal"></div>
-								<% end %>
+		<!-- Nav tabs -->
+		<div class="grecqo_tabs">
+			<ul class="" role="tablist">
+			  <li role="presentation" class="active">
+			  	<a href="#towns" role="tab" data-toggle="tab">
+			  		Städte
+			  		<span class="bottom_border"></span>
+			  	</a>
+			  </li>
+			  <li role="presentation">
+			  	<a href="#conquers" role="tab" data-toggle="tab">
+			  		Eroberungen
+			  		<span class="bottom_border"></span>
+			  	</a>
+			  </li>
+			</ul>
+		</div>
 
-								<div class="content">
-									<div class="pull-right">
-										<div class="meta">
-											<div>
-												<%= town.ocean %>
-												<%= fa_icon 'flag' %>
-												&nbsp;&nbsp;|&nbsp;&nbsp;
-												<%= town.coordinates %>
-												<%= fa_icon 'globe' %>
-												&nbsp;&nbsp;|&nbsp;&nbsp;
-												<%= number_with_delimiter(town.points) %>
-												<%= fa_icon 'bar-chart' %>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<!-- Towns -->
+		  <div role="tabpanel" class="tab-pane active" id="towns">
+	  		<div class="town_list">
+					<div class="list">
+						<% @player_towns.each do |town| %>
+
+							<%= link_to player_town_path(@player, town), data: {toggle: 'modal', target: '#pTown'} do %>
+								<div class="individual_town">
+									<div class="clearfix">
+
+										<% if town.conquers.present? %>
+											<% if town.conquers.last.intern? %>
+												<div class="border_left_intern"></div>
+											<% else %>
+												<div class="border_left_eo"></div>
+											<% end %>
+										<% else %> 
+											<div class="border_left_normal"></div>
+										<% end %>
+
+										<div class="content">
+											<div class="pull-right">
+												<div class="meta">
+													<div>
+														<%= town.ocean %>
+														<%= fa_icon 'flag' %>
+														&nbsp;&nbsp;|&nbsp;&nbsp;
+														<%= town.coordinates %>
+														<%= fa_icon 'globe' %>
+														&nbsp;&nbsp;|&nbsp;&nbsp;
+														<%= number_with_delimiter(town.points) %>
+														<%= fa_icon 'bar-chart' %>
+													</div>
+												</div>
+											</div>
+											<div class="pull-left">
+													<span class="town_name">
+														<%= town.name %>
+														<% if town.conquers.any? %>
+															<span class='text-muted' style="font-weight: normal;color: #ccc">
+																- Erobert am <%= town.conquers.find_by_new_player_id(@player.id).conquer_time if town.conquers.present? %>
+															</span>
+														<% end %>
+													</span>
+													<div class="meta">
+													
+													</div>
+													<div class="meta">
+														<% if town.conquers.last %>
+														<% else %>
+														<% end %>
+													</div>
 											</div>
 										</div>
-									</div>
-									<div class="pull-left">
-											<span class="town_name">
-												<%= town.name %>
-												<span class='text-muted' style="font-weight: normal;color: #ccc">
-													- Erobert am <%= town.conquers.find_by_new_player_id(@player.id).conquer_time if town.conquers.present? %>
-												</span>
-											</span>
-											<div class="meta">
-											
-											</div>
-											<div class="meta">
-												<% if town.conquers.last %>
-												<% else %>
-												<% end %>
-											</div>
+
 									</div>
 								</div>
+							<% end %>
 
-							</div>
-						</div>
-					<% end %>
+						<% end %>
+					</div>
+				</div>
 
-				<% end %>
-			</div>
+				<div class="text-center">
+					<%= will_paginate @player_towns, renderer: BootstrapPagination::Rails %>
+				</div>
+		  </div>
+
+		  <!-- Conquers -->
+		  <div role="tabpanel" class="tab-pane" id="conquers">
+		  	Coming soon...
+		  </div>
 		</div>
 
-		<div class="text-center">
-			<%= will_paginate @player_towns, renderer: BootstrapPagination::Rails %>
-		</div>
 	</div>
 </div>
 

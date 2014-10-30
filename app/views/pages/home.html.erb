@@ -9,12 +9,6 @@
 				<span class="title">
 					Spieler
 				</span>
-				<div class="hover_arrow">
-					<div class="center">
-						Spieler <br>
-						<i class="fa fa-arrow-right fa-2x"></i>
-					</div>
-				</div>
 			</div>
 		<% end %>
 
@@ -26,12 +20,6 @@
 				<span class="title">
 					Allianzen
 				</span>
-				<div class="hover_arrow">
-					<div class="center">
-						Allianzen <br>
-						<i class="fa fa-arrow-right fa-2x"></i>
-					</div>
-				</div>
 			</div>
 		<% end %>
 
@@ -76,6 +64,20 @@
 				</div>
 			</div>
 		</div>
+
+		<%= search_form_for @search do |f| %>
+			<div class="input-group">
+	      <%= f.text_field :name_cont, class: 'form-control', placeholder: 'Spieler Suche' %>
+	      <div class="input-group-btn">
+	        <%= button_tag(type: "submit", class: "btn btn-default", tabindex: '-1') do %>
+            <i class="fa fa-binoculars"></i> Suchen
+          <% end %>
+	      </div>
+	    </div>
+    <% end %>
+
+		<br>
+
 
 		<!-- Discovery -->
 		<div class="discovery">

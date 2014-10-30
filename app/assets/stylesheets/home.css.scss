@@ -4,23 +4,6 @@
 	.stat_box_links {
 		text-decoration: none;
 		color: inherit;
-		.hover_arrow {
-			display: none;
-		}
-		&:hover {
-			.stat_box {
-				opacity: .6;
-			}
-			.stat_box {
-				min-height: 99px;
-				.icon, .title {
-					display: none;
-				}
-			}
-			.hover_arrow {
-				display: block;
-			}
-		}
 	}
 	.banner {
 		margin-bottom: 20px;
@@ -167,3 +150,4 @@
 		}
 	}
 }
+

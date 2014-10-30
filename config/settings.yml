@@ -5,3 +5,5 @@ servers:
   de:
     67: 'http://de67.grepolis.com/data/players.txt'
     68: 'http://de68.grepolis.com/data/players.txt'
+
+google_analytics: 'UA-56267922-1'
