@@ -20,6 +20,7 @@ gem 'devise'
 gem 'delayed_job_active_record'
 gem 'rails-timeago', '~> 2.0'
 gem 'ransack'
+gem 'highcharts-rails', '~> 3.0.0'
 
 # Pagination
 gem 'will_paginate'
@@ -30,6 +31,7 @@ gem 'acts_as_follower'
 
 # Notifications
 gem 'public_activity'
+
 
 # Tracking
 gem 'mixpanel-ruby'

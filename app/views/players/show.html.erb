@@ -9,10 +9,10 @@
 					<% end %>
 				</li>
 				<li class="player_alliance">
-					<%= link_to '#' do %>
+					<%= link_to '#', style: 'padding: 0 0 0 16px;' do %>
 						<% if @player.alliance.present? %>
 							<%= fa_icon 'shield' %>
-							<%= @player.alliance.name %>
+							<%= link_to @player.alliance.name, @player.alliance, style: 'padding: 0' %>
 						<% else %>
 							In keiner Allianz
 						<% end %>

@@ -1,0 +1,78 @@
+.ally_dashboard {
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	.header {
+		background: #f6f7f8;
+		height: 47px;
+		padding: 0 12px;
+		border-radius: 3px 3px 0 0;
+		.name {
+			color: #4e5665;
+			font-weight: bold;
+			float: left;
+			font-size: 18px;
+			line-height: 47px;
+		}
+		.status {
+			float: right;
+			color: #9197a3;
+			font-size: 14px;
+			line-height: 47px;
+		}
+	}
+	.stats {
+		border-top: 1px solid #e5e5e5;
+		padding: 12px;
+		.last {
+			border-right: none!important;
+		}
+		.ally_box {
+			text-align: center;
+			border-right: 1px solid #e5e5e5;
+			.number {
+				font-size: 24px;
+				font-weight: bold;
+			}
+			.text {
+				color: #9197a3;
+			}
+			&:hover {
+				background-color: #f6f7f8;
+			}
+		}
+	}
+	.habitat {
+		border-radius: 0 0 3px 3px;
+		border-top: 1px solid #e5e5e5;
+		padding: 12px;
+		.ally_bash_list {
+			.boxerino {
+				display: block;
+				border-bottom: 1px solid #e5e5e5;
+				margin-bottom: 10px;
+				text-align: center;
+				padding: 12px;
+				.number {
+					font-size: 24px;
+					font-weight: bold;
+				}
+				.text {
+					color: #9197a3;
+				}
+				&:hover {
+					background-color: #f6f7f8;
+				}
+			}
+		}
+		.ally_member_list {
+			table {
+				thead {
+					color: #4e5665;
+				}
+			}
+		}
+	}
+}

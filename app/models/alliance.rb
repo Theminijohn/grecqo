@@ -5,4 +5,8 @@ class Alliance < ActiveRecord::Base
 	# Associations
 	has_many :players
 	
+	# Params
+	def to_param
+		"#{self.id}-#{self.name.downcase.gsub(" ", "-")}"
+	end
 end

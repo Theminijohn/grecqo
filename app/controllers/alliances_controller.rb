@@ -6,5 +6,7 @@ class AlliancesController < ApplicationController
 	end
 
 	def show
+		@alliance = Alliance.find(params[:id])
+		@ally_players = @alliance.players.order('rank asc')
 	end
 end
