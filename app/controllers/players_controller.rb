@@ -19,6 +19,8 @@ class PlayersController < ApplicationController
 		# Mixpanel
 		mixpanel.track(current_user.id, 'Followed a Player')
 		mixpanel.people.plus_one(current_user.id, 'Following')
+		# Google Event
+		Gabba::Gabba.new("#{Settings.google_analytics}}", "grecqo.com").event("Player", "Follow", "ID", "#{current_user.id}", true)
 
 		redirect_to :back, notice: 'Du folgst diesem spieler jetzt.'
 	end
@@ -32,6 +34,9 @@ class PlayersController < ApplicationController
 		# Mixpanel
 		mixpanel.track(current_user.id, 'Unfollowed a Player')
 		mixpanel.people.increment(current_user.id, { 'Following' => -1 })
+		# Google Event
+		Gabba::Gabba.new("#{Settings.google_analytics}}", "grecqo.com").event("Player", "Unfollow", "ID", "#{current_user.id}", true)
+
 
 		redirect_to :back, notice: 'Du folgst diesem spieler jetzt nicht mehr'
 	end

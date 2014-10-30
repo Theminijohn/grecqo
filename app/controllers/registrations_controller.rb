@@ -16,6 +16,8 @@ class RegistrationsController < Devise::RegistrationsController
 			notifier = Slack::Notifier.new "https://hooks.slack.com/services/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",
 				channel: '#notifier', username: 'GrecqoBot'
 			notifier.ping "Yay, we have a new User Registration. Users: #{User.all.count}"
+			# Google Event
+			Gabba::Gabba.new("#{Settings.google_analytics}", "grecqo.com").event("User", "Register", "ID", "#{@user.id}", true)
 		end
 	end
 

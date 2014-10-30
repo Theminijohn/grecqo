@@ -20,7 +20,6 @@ gem 'devise'
 gem 'delayed_job_active_record'
 gem 'rails-timeago', '~> 2.0'
 gem 'ransack'
-gem 'slack-notifier'
 
 # Pagination
 gem 'will_paginate'
@@ -34,6 +33,8 @@ gem 'public_activity'
 
 # Tracking
 gem 'mixpanel-ruby'
+gem 'slack-notifier'
+gem 'gabba'
 
 group :development, :test do
   gem 'quiet_assets'
