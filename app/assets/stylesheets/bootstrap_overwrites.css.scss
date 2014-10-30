@@ -38,6 +38,7 @@ $container-large-desktop:  ((920px + $grid-gutter-width));
 @import 'alliances/*';
 @import 'activities/*';
 @import 'towns/*';
+@import 'devise/*';
 
 body {
 	-webkit-font-smoothing: antialiased;
