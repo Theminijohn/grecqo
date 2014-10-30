@@ -20,6 +20,12 @@
 				<%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Passwort" %>
 			</div>
 
+			<% if devise_mapping.rememberable? -%>
+				<div class="form-group">
+					<%= f.check_box :remember_me %> <%= f.label 'Vergiss mich nicht' %>
+				</div>
+			<% end -%>
+
 			<div class="form-group">
 				<%= f.submit "Log in", class: 'grecqo-btn btn-block btn-lg' %>
 			</div>
@@ -39,3 +45,4 @@
 <br>
 <br>
 <br>
+
