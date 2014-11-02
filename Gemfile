@@ -46,6 +46,12 @@ group :development, :test do
   gem 'pry-byebug'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'passenger', '>= 4.0.42'

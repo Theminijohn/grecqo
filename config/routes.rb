@@ -2,6 +2,16 @@ Rails.application.routes.draw do
 
 	root 'pages#home'
 
+  # API
+  namespace :api, defaults: { format: :json } do  
+    namespace :v1 do
+      resources :players, only: [:index, :show]
+      resources :alliances, only: [:index, :show]
+      resources :conquers, only: [:index, :show]
+      resources :towns, only: [:index, :show]
+    end
+  end
+
 	# Devise
 	devise_for :users, path: '',
 		path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
