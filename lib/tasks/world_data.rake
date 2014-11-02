@@ -51,7 +51,7 @@ namespace :populate do
 	end
 
 	task all: [:environment] do
-		TASKS = [:players, :pkall, :pkatt, :pkdef, :alliances, :towns, :conquers]
+		TASKS = [:players, :pkall, :pkatt, :pkdef, :alliances, :akall, :akatt, :akdef, :towns, :conquers]
 
 		TASKS.each do |t|
 			Rake::Task["populate:#{t.to_s}"].invoke
