@@ -39,6 +39,7 @@ $container-large-desktop:  ((920px + $grid-gutter-width));
 @import 'activities/*';
 @import 'towns/*';
 @import 'devise/*';
+@import 'statuses/*';
 
 body {
 	-webkit-font-smoothing: antialiased;

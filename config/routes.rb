@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
 	root 'pages#home'
 
-  # API
-  namespace :api, defaults: { format: :json } do  
-    namespace :v1 do
-      resources :players, only: [:index, :show]
-      resources :alliances, only: [:index, :show]
-      resources :conquers, only: [:index, :show]
-      resources :towns, only: [:index, :show]
-    end
-  end
+	# API
+	namespace :api, defaults: { format: :json } do  
+		namespace :v1 do
+			resources :players, only: [:index, :show]
+			resources :alliances, only: [:index, :show]
+			resources :conquers, only: [:index, :show]
+			resources :towns, only: [:index, :show]
+		end
+	end
 
 	# Devise
 	devise_for :users, path: '',
@@ -38,5 +38,8 @@ Rails.application.routes.draw do
 	# Activities
 	resources :activities
 	get 'clear_activities' => 'activities#delete_all', as: :clear_activities
+
+	# Grecqo Status
+	resources :statuses
 
 end

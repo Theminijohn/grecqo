@@ -1,0 +1,149 @@
+<!-- Breadcrumb -->
+<div class="status_crumb">
+  <div class="inner">
+    <div class="pull-left">
+      <ul>
+        <li class="status_title">
+          <%= link_to statuses_path do %>
+            Grecqo Status
+            <span class="bottom_border"></span>
+          <% end %>
+        </li>
+        <li class="feedback">
+          <%= link_to 'Online', statuses_path %>
+        </li>
+        <li class="feedback">
+          <% if can? :create, @status %>
+            <%= link_to new_status_path do %>
+              <i class="fa fa-comment-o"></i>
+              New Status
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="pull-right">
+      <ul>
+        <li>
+          <%= link_to '#' do %>
+            Aktualisiert <%= timeago_tag Player.find_by_rank(1).updated_at, lang: :de %>
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+          <li>
+           <%= link_to 'Feedback', 'https://grecqo.uservoice.com/', target: '_blank' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<!-- Module Statuses -->
+<div class="row status_modules">
+  <div class="col-md-3">
+    <div class="module">
+      <div class="icon <%= Status.last.players ? 'clear' : 'problem' %>">
+        <i class="fa fa-check-circle fa-2x"></i>
+      </div>
+      <div class="clearfix"></div>
+      <span class="title">
+        Spieler
+      </span>
+      <div class="meta">
+        <%= Status.last.players ? 'Online' : 'Problem' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="module">
+      <div class="icon <%= Status.last.alliances ? 'clear' : 'problem' %>">
+        <i class="fa fa-check-circle fa-2x"></i>
+      </div>
+      <div class="clearfix"></div>
+      <span class="title">
+        Allianzen
+      </span>
+      <div class="meta">
+        <%= Status.last.alliances ? 'Online' : 'Problem' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="module">
+      <div class="icon <%= Status.last.conquers ? 'clear' : 'problem' %>">
+        <i class="fa fa-check-circle fa-2x"></i>
+      </div>
+      <div class="clearfix"></div>
+      <span class="title">
+        Eroberungen
+      </span>
+      <div class="meta">
+        <%= Status.last.conquers ? 'Online' : 'Problem' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="module">
+      <div class="icon <%= Status.last.towns ? 'clear' : 'problem' %>">
+        <i class="fa fa-check-circle fa-2x"></i>
+      </div>
+      <div class="clearfix"></div>
+      <span class="title">
+        Städte
+      </span>
+      <div class="meta">
+        <%= Status.last.towns ? 'Online' : 'Problem' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Status Messages -->
+<div class="status_messages">
+  <div class="header">
+    <span>Updates</span>
+  </div>
+
+  <!-- History -->
+  <div class="history">
+    <% @statuses.each do |s| %>
+      <div class="status_message">
+        <div class="clearfix">
+          
+          <div class="status_border"></div>
+          <div class="message">
+            
+            <div class="meta">
+              <%= timeago_tag s.created_at, lang: :de %>
+              <% if can? :update, Status %>
+                |
+                <%= link_to edit_status_path(s) do %>
+                  <i class="fa fa-cogs"></i>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="content">
+              <%= link_to s do %>
+                
+                <span class="title"><%= s.title %></span>
+                <div class="texterino">
+                  <%= truncate(s.status, length: 130) %>
+                </div>
+
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    <% end%>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= will_paginate @statuses, renderer: BootstrapPagination::Rails %>
+</div>

@@ -33,6 +33,9 @@ gem 'acts_as_follower'
 # Notifications
 gem 'public_activity'
 
+# Authorization
+gem 'cancancan', '~> 1.9'
+gem 'rolify'
 
 # Tracking
 gem 'mixpanel-ruby'

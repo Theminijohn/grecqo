@@ -1,0 +1,66 @@
+<!-- Breadcrumb -->
+<div class="status_crumb">
+	<div class="inner">
+		<div class="pull-left">
+			<ul>
+				<li class="status_title">
+					<%= link_to statuses_path do %>
+						Grecqo Status
+					<% end %>
+				</li>
+				<li class="feedback">
+					<%= link_to "#{@status.title}", statuses_path %>
+				</li>
+				<li class="feedback">
+					<% if can? :update, @status %>
+						<%= link_to edit_status_path(@status) do %>
+							<i class="fa fa-cogs"></i>
+							Edit Status
+						<% end %>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+		<div class="pull-right">
+			<ul>
+				<li>
+					<%= link_to '#' do %>
+						<%= timeago_tag @status.created_at, lang: :de %>
+					<% end %>
+				</li>
+				<% if user_signed_in? %>
+					<li>
+					 <%= link_to 'Feedback', 'https://grecqo.uservoice.com/', target: '_blank' %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<!-- Status -->
+<div class="individual_status">
+	<div class="clearfix">
+		<div class="meta">
+
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2MDkzNzUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading"><%= @status.title%></h4>
+					<span class="description">Created by Grecqo - <%= timeago_tag(@status.created_at, lang: :de)%></span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Description -->
+		<div class="description">
+			<div class="title">Description</div>
+			<div class="actual_description">
+				<%= @status.status %>
+			</div>
+		</div>
+	</div>
+</div>
