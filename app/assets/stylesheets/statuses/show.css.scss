@@ -45,13 +45,14 @@
 					zoom: 1;
 					color: #141823;
 					span.description {
+						padding-left: 0;
 						color: #9197a3;
 					}
 				}
 			}
 		}
 	}
-	.description {
+	.explain {
 		padding: 15px;
 		.title {
 			font-weight: bold;
