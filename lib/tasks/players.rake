@@ -1,7 +1,7 @@
 require 'smarter_csv'
 require 'open-uri'
 require 'ruby-progressbar'
-desc "Import Players"
+desc 'Import Players'
 
 
 task import_players: [:environment] do
@@ -30,10 +30,11 @@ task import_players: [:environment] do
       player = Player.where(grepo_id: a[:grepo_id]).first_or_initialize
       player.attributes = a
       
+
       # Track Alliance Changes
       if player.alliance_id_changed? && player.followers.count > 0
         player.followers.each do |follower|
-          player.delay.create_activity :changed_alliance, owner: player, recipient: follower
+          player.create_activity :changed_alliance, owner: player, recipient: follower
         end
       end
 

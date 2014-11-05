@@ -11,14 +11,14 @@
 				<li class="feedback">
 					<%= link_to "#{@status.title}", statuses_path %>
 				</li>
-				<li class="feedback">
 					<% if can? :update, @status %>
-						<%= link_to edit_status_path(@status) do %>
-							<i class="fa fa-cogs"></i>
-							Edit Status
-						<% end %>
+						<li class="feedback">
+							<%= link_to edit_status_path(@status) do %>
+								<i class="fa fa-cogs"></i>
+								Edit Status
+							<% end %>
+						</li>
 					<% end %>
-				</li>
 			</ul>
 		</div>
 		<div class="pull-right">

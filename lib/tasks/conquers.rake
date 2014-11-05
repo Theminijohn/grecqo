@@ -58,7 +58,7 @@ task import_conquers: [:environment] do
         @pl = Player.find_by_grepo_id(a[:new_player_id])
         if @pl.present? && @pl.followers.count > 0
           @pl.followers.each do |follower|
-            conquer.delay.create_activity :conquered_town, owner: @pl, recipient: follower
+            conquer.create_activity :conquered_town, owner: @pl, recipient: follower
           end
         end
       end

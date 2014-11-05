@@ -12,28 +12,21 @@
         <li class="feedback">
           <%= link_to 'Online', statuses_path %>
         </li>
-        <li class="feedback">
           <% if can? :create, @status %>
-            <%= link_to new_status_path do %>
-              <i class="fa fa-comment-o"></i>
-              New Status
-            <% end %>
+            <li class="feedback">
+              <%= link_to new_status_path do %>
+                <i class="fa fa-comment-o"></i>
+                New Status
+              <% end %>
+            </li>
           <% end %>
-        </li>
       </ul>
     </div>
     <div class="pull-right">
       <ul>
         <li>
-          <%= link_to '#' do %>
-            Aktualisiert <%= timeago_tag Player.find_by_rank(1).updated_at, lang: :de %>
-          <% end %>
+         <%= link_to 'Feedback', 'https://grecqo.uservoice.com/', target: '_blank' %>
         </li>
-        <% if user_signed_in? %>
-          <li>
-           <%= link_to 'Feedback', 'https://grecqo.uservoice.com/', target: '_blank' %>
-          </li>
-        <% end %>
       </ul>
     </div>
     <div class="clearfix"></div>
