@@ -237,5 +237,49 @@
 
 		</div>
 	</div>
+</div>
+
+
+<!-- Nav tabs -->
+<div class="grecqo_tabs">
+	<ul class="" role="tablist">
+	  <li role="presentation" class="active">
+	  	<a href="#members" role="tab" data-toggle="tab">
+	  		Mitglieder
+	  		<span class="bottom_border"></span>
+	  	</a>
+	  </li>
+	  <li role="presentation">
+	  	<a href="#bashlist" role="tab" data-toggle="tab">
+	  		Bash Rangliste
+	  		<span class="bottom_border"></span>
+	  	</a>
+	  </li>
+	</ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	<!-- Towns -->
+  <div role="tabpanel" class="tab-pane active" id="members">
+  	Mitglieder
+	</div>
+
+	<!-- Conquers -->
+	<div role="tabpanel" class="tab-pane" id="bashlist">
+		Bash Rangliste
+	</div>
 
 </div>
+
+
+<br>
+<br>
+
+<% @alliance.ocean_percentage.each do |a| %>
+	<%= a %> <br>
+<% end %>
+
+<br>
+<br>
+

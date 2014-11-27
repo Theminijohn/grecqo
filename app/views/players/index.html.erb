@@ -41,6 +41,7 @@
           <th>Name</th>
           <th>Allianz</th>
           <th>Punkte</th>
+          <th class="text-center">Städte</th>
         </tr>
       </thead>
       <tbody>
@@ -50,12 +51,15 @@
 	          <td><%= link_to p.name.capitalize, p %></td>
 	          <td>
 	          	<% if p.alliance.present? %>
-	          		<%= p.alliance.name %>
+	          		<%= link_to p.alliance.name, p.alliance %>
 	          	<% else %>
 	          		<span class="text-muted">--- </span>
 	          	<% end %>
 	          </td>
 	          <td><%= p.points %></td>
+            <td class="text-center">
+              <%= p.town_count %>
+            </td>
 	        </tr>
         <% end %>
       </tbody>
